@@ -1,0 +1,15 @@
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <button type="button"  class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addModal">
+  add
+</button>
+<button type="button" *ngIf="authService.user==null" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">
+  login
+</button>
+<button type="button" *ngIf="authService.user!=null" (click)="authService.logout()" class="btn btn-primary btn-lg" data-toggle="modal">
+  logout
+</button>
+</nav>
+<nav class="navbar fixed-top navbar-light bg-light">
+  total:{{iouService.total| currency:'ILS':'symbol-narrow':'1.2-2'}}
+   <span *ngIf="authService.user!=null"> hello: {{authService.user.uid}}</span>
+</nav>
